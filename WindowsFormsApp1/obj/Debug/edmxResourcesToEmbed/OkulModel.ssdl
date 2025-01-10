@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbo.OkulOtomasyonSistemiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbo.OkulOtomasyonSistemi.dbo.ilceler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ilceler">
+    <Key>
+      <PropertyRef Name="ilce_no" />
+      <PropertyRef Name="il_no" />
+    </Key>
+    <Property Name="ilce_no" Type="int" Nullable="false" />
+    <Property Name="isim" Type="nvarchar" MaxLength="255" />
+    <Property Name="il_no" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tbl_Ayarlar">
+    <Key>
+      <PropertyRef Name="AyarlarId" />
+    </Key>
+    <Property Name="AyarlarId" Type="int" Nullable="false" />
+    <Property Name="OgrtSifre" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'dbo.OkulOtomasyonSistemi.dbo.Tbl_Brans' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Tbl_Brans">
+    <Key>
+      <PropertyRef Name="BransId" />
+    </Key>
+    <Property Name="BransId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BransAd" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Tbl_OgrAyarlar">
+    <Key>
+      <PropertyRef Name="AyarlarOgrId" />
+    </Key>
+    <Property Name="AyarlarOgrId" Type="int" Nullable="false" />
+    <Property Name="OgrSifre" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="Tbl_Ogrenciler">
+    <Key>
+      <PropertyRef Name="OgrId" />
+    </Key>
+    <Property Name="OgrId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrAd" Type="varchar" MaxLength="30" />
+    <Property Name="OgrSoyad" Type="varchar" MaxLength="30" />
+    <Property Name="OgrNo" Type="char" MaxLength="4" />
+    <Property Name="OgrSinif" Type="char" MaxLength="7" />
+    <Property Name="OgrDogTar" Type="nchar" MaxLength="10" />
+    <Property Name="OgrCinsiyet" Type="char" MaxLength="1" />
+    <Property Name="OgrTc" Type="char" MaxLength="11" />
+    <Property Name="OgrVeliId" Type="int" />
+    <Property Name="Ogrİl" Type="varchar" MaxLength="13" />
+    <Property Name="Ogrİlce" Type="varchar" MaxLength="20" />
+    <Property Name="OgrAdres" Type="varchar" MaxLength="100" />
+    <Property Name="OgrFoto" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_Ogretmenler">
+    <Key>
+      <PropertyRef Name="OgrtId" />
+    </Key>
+    <Property Name="OgrtId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OgrtAd" Type="varchar" MaxLength="30" />
+    <Property Name="OgrtSoyad" Type="varchar" MaxLength="30" />
+    <Property Name="OgrtTc" Type="char" MaxLength="11" />
+    <Property Name="OgrtTel" Type="char" MaxLength="15" />
+    <Property Name="OgrtMail" Type="varchar" MaxLength="40" />
+    <Property Name="Ogrtİl" Type="varchar" MaxLength="13" />
+    <Property Name="Ogrtİlce" Type="nchar" MaxLength="20" />
+    <Property Name="OgrtAdres" Type="varchar" MaxLength="100" />
+    <Property Name="OgrtBrans" Type="varchar" MaxLength="30" />
+    <Property Name="OgrtFoto" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Tbl_Veliler">
+    <Key>
+      <PropertyRef Name="VeliId" />
+    </Key>
+    <Property Name="VeliId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VeliAnne" Type="varchar" MaxLength="30" />
+    <Property Name="VeliBaba" Type="varchar" MaxLength="30" />
+    <Property Name="VeliTel1" Type="char" MaxLength="15" />
+    <Property Name="VeliTel2" Type="char" MaxLength="15" />
+    <Property Name="VeliMail" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <Association Name="FK_Tbl_Ayarlar_Tbl_Ogretmenler">
+    <End Role="Tbl_Ogretmenler" Type="Self.Tbl_Ogretmenler" Multiplicity="1" />
+    <End Role="Tbl_Ayarlar" Type="Self.Tbl_Ayarlar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Ogretmenler">
+        <PropertyRef Name="OgrtId" />
+      </Principal>
+      <Dependent Role="Tbl_Ayarlar">
+        <PropertyRef Name="AyarlarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Ayarlar_Tbl_Ogretmenler1">
+    <End Role="Tbl_Ogretmenler" Type="Self.Tbl_Ogretmenler" Multiplicity="1" />
+    <End Role="Tbl_Ayarlar" Type="Self.Tbl_Ayarlar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Ogretmenler">
+        <PropertyRef Name="OgrtId" />
+      </Principal>
+      <Dependent Role="Tbl_Ayarlar">
+        <PropertyRef Name="AyarlarId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_OgrAyarlar_Tbl_Ogrenciler">
+    <End Role="Tbl_Ogrenciler" Type="Self.Tbl_Ogrenciler" Multiplicity="1" />
+    <End Role="Tbl_OgrAyarlar" Type="Self.Tbl_OgrAyarlar" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Ogrenciler">
+        <PropertyRef Name="OgrId" />
+      </Principal>
+      <Dependent Role="Tbl_OgrAyarlar">
+        <PropertyRef Name="AyarlarOgrId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tbl_Ogrenciler_Tbl_Veliler">
+    <End Role="Tbl_Veliler" Type="Self.Tbl_Veliler" Multiplicity="0..1" />
+    <End Role="Tbl_Ogrenciler" Type="Self.Tbl_Ogrenciler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tbl_Veliler">
+        <PropertyRef Name="VeliId" />
+      </Principal>
+      <Dependent Role="Tbl_Ogrenciler">
+        <PropertyRef Name="OgrVeliId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="AyarlarOgrenciler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="AyarlarOgretmenler" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="dboOkulOtomasyonSistemiModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Ayarlar" EntityType="Self.Tbl_Ayarlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_OgrAyarlar" EntityType="Self.Tbl_OgrAyarlar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Ogrenciler" EntityType="Self.Tbl_Ogrenciler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Ogretmenler" EntityType="Self.Tbl_Ogretmenler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tbl_Veliler" EntityType="Self.Tbl_Veliler" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ilceler" EntityType="Self.ilceler" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ilceler].[ilce_no] AS [ilce_no], 
+    [ilceler].[isim] AS [isim], 
+    [ilceler].[il_no] AS [il_no]
+    FROM [dbo].[ilceler] AS [ilceler]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Tbl_Brans" EntityType="Self.Tbl_Brans" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Tbl_Brans].[BransId] AS [BransId], 
+    [Tbl_Brans].[BransAd] AS [BransAd]
+    FROM [dbo].[Tbl_Brans] AS [Tbl_Brans]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Tbl_Ayarlar_Tbl_Ogretmenler" Association="Self.FK_Tbl_Ayarlar_Tbl_Ogretmenler">
+      <End Role="Tbl_Ogretmenler" EntitySet="Tbl_Ogretmenler" />
+      <End Role="Tbl_Ayarlar" EntitySet="Tbl_Ayarlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Ayarlar_Tbl_Ogretmenler1" Association="Self.FK_Tbl_Ayarlar_Tbl_Ogretmenler1">
+      <End Role="Tbl_Ogretmenler" EntitySet="Tbl_Ogretmenler" />
+      <End Role="Tbl_Ayarlar" EntitySet="Tbl_Ayarlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_OgrAyarlar_Tbl_Ogrenciler" Association="Self.FK_Tbl_OgrAyarlar_Tbl_Ogrenciler">
+      <End Role="Tbl_Ogrenciler" EntitySet="Tbl_Ogrenciler" />
+      <End Role="Tbl_OgrAyarlar" EntitySet="Tbl_OgrAyarlar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tbl_Ogrenciler_Tbl_Veliler" Association="Self.FK_Tbl_Ogrenciler_Tbl_Veliler">
+      <End Role="Tbl_Veliler" EntitySet="Tbl_Veliler" />
+      <End Role="Tbl_Ogrenciler" EntitySet="Tbl_Ogrenciler" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

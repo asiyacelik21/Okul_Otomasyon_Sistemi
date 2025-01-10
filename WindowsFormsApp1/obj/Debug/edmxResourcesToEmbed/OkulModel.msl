@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dboOkulOtomasyonSistemiModelStoreContainer" CdmEntityContainer="dbOkulEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Ogrenciler">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_Ogrenciler">
+        <MappingFragment StoreEntitySet="Tbl_Ogrenciler">
+          <ScalarProperty Name="OgrId" ColumnName="OgrId" />
+          <ScalarProperty Name="OgrAd" ColumnName="OgrAd" />
+          <ScalarProperty Name="OgrSoyad" ColumnName="OgrSoyad" />
+          <ScalarProperty Name="OgrNo" ColumnName="OgrNo" />
+          <ScalarProperty Name="OgrSinif" ColumnName="OgrSinif" />
+          <ScalarProperty Name="OgrDogTar" ColumnName="OgrDogTar" />
+          <ScalarProperty Name="OgrCinsiyet" ColumnName="OgrCinsiyet" />
+          <ScalarProperty Name="OgrTc" ColumnName="OgrTc" />
+          <ScalarProperty Name="OgrVeliId" ColumnName="OgrVeliId" />
+          <ScalarProperty Name="Ogrİl" ColumnName="Ogrİl" />
+          <ScalarProperty Name="Ogrİlce" ColumnName="Ogrİlce" />
+          <ScalarProperty Name="OgrAdres" ColumnName="OgrAdres" />
+          <ScalarProperty Name="OgrFoto" ColumnName="OgrFoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Ogretmenler">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_Ogretmenler">
+        <MappingFragment StoreEntitySet="Tbl_Ogretmenler">
+          <ScalarProperty Name="OgrtId" ColumnName="OgrtId" />
+          <ScalarProperty Name="OgrtAd" ColumnName="OgrtAd" />
+          <ScalarProperty Name="OgrtSoyad" ColumnName="OgrtSoyad" />
+          <ScalarProperty Name="OgrtTc" ColumnName="OgrtTc" />
+          <ScalarProperty Name="OgrtTel" ColumnName="OgrtTel" />
+          <ScalarProperty Name="OgrtMail" ColumnName="OgrtMail" />
+          <ScalarProperty Name="Ogrtİl" ColumnName="Ogrtİl" />
+          <ScalarProperty Name="Ogrtİlce" ColumnName="Ogrtİlce" />
+          <ScalarProperty Name="OgrtAdres" ColumnName="OgrtAdres" />
+          <ScalarProperty Name="OgrtBrans" ColumnName="OgrtBrans" />
+          <ScalarProperty Name="OgrtFoto" ColumnName="OgrtFoto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Veliler">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_Veliler">
+        <MappingFragment StoreEntitySet="Tbl_Veliler">
+          <ScalarProperty Name="VeliId" ColumnName="VeliId" />
+          <ScalarProperty Name="VeliAnne" ColumnName="VeliAnne" />
+          <ScalarProperty Name="VeliBaba" ColumnName="VeliBaba" />
+          <ScalarProperty Name="VeliTel1" ColumnName="VeliTel1" />
+          <ScalarProperty Name="VeliTel2" ColumnName="VeliTel2" />
+          <ScalarProperty Name="VeliMail" ColumnName="VeliMail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilceler">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.ilceler">
+        <MappingFragment StoreEntitySet="ilceler">
+          <ScalarProperty Name="ilce_no" ColumnName="ilce_no" />
+          <ScalarProperty Name="isim" ColumnName="isim" />
+          <ScalarProperty Name="il_no" ColumnName="il_no" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Brans">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_Brans">
+        <MappingFragment StoreEntitySet="Tbl_Brans">
+          <ScalarProperty Name="BransId" ColumnName="BransId" />
+          <ScalarProperty Name="BransAd" ColumnName="BransAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_Ayarlar">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_Ayarlar">
+        <MappingFragment StoreEntitySet="Tbl_Ayarlar">
+          <ScalarProperty Name="OgrtSifre" ColumnName="OgrtSifre" />
+          <ScalarProperty Name="AyarlarId" ColumnName="AyarlarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tbl_OgrAyarlar">
+      <EntityTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.Tbl_OgrAyarlar">
+        <MappingFragment StoreEntitySet="Tbl_OgrAyarlar">
+          <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+          <ScalarProperty Name="AyarlarOgrId" ColumnName="AyarlarOgrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AyarlarOgrenciler" FunctionName="dbo.OkulOtomasyonSistemiModel.Store.AyarlarOgrenciler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.AyarlarOgrenciler_Result">
+          <ScalarProperty Name="AyarlarOgrId" ColumnName="AyarlarOgrId" />
+          <ScalarProperty Name="OgrAdSoyad" ColumnName="OgrAdSoyad" />
+          <ScalarProperty Name="OgrSinif" ColumnName="OgrSinif" />
+          <ScalarProperty Name="OgrTc" ColumnName="OgrTc" />
+          <ScalarProperty Name="OgrSifre" ColumnName="OgrSifre" />
+          <ScalarProperty Name="OgrFoto" ColumnName="OgrFoto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="AyarlarOgretmenler" FunctionName="dbo.OkulOtomasyonSistemiModel.Store.AyarlarOgretmenler">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="dbo.OkulOtomasyonSistemiModel.AyarlarOgretmenler_Result">
+          <ScalarProperty Name="AyarlarId" ColumnName="AyarlarId" />
+          <ScalarProperty Name="OgrtAdSoyad" ColumnName="OgrtAdSoyad" />
+          <ScalarProperty Name="OgrtBrans" ColumnName="OgrtBrans" />
+          <ScalarProperty Name="OgrtTc" ColumnName="OgrtTc" />
+          <ScalarProperty Name="OgrtSifre" ColumnName="OgrtSifre" />
+          <ScalarProperty Name="OgrtFoto" ColumnName="OgrtFoto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
